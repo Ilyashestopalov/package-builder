@@ -1,0 +1,19 @@
+[Unit]
+Description=Keycloak. Identity and Access Management aimed at modern applications and services.
+Documentation=https://www.keycloak.org/documentation
+After=network.target
+Wants=network.target
+
+[Service]
+Type=idle
+User=keycloak
+Group=keycloak
+WorkingDirectory=/var/lib/keycloak
+EnvironmentFile=-/etc/sysconfig/keycloak
+ExecStart=/opt/wildfly/keycloak/bin/standalone.sh ${EXTRA_OPTS}
+TimeoutStartSec=600
+TimeoutStopSec=600s
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

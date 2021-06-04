@@ -1,0 +1,4 @@
+# /etc/sysconfig/keycloak
+
+JAVA_OPTS=-Xms1024m -Xmx8192m -XX:MaxPermSize=768m
+EXTRA_OPTS=''
